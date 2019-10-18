@@ -1,1 +1,12 @@
-<p>repos-list works!</p>
+<label>Username:</label>
+<input [(ngModel)]="username" />
+<button (click)="getUserRepo()" class="btn btn-dark">GET DATA</button>
+<div class="container">
+  <div class="row">
+    <app-repos-list-item
+      class="col-md-4"
+      *ngFor="let dataitem of data"
+      [singleRepo]="dataitem"
+    ></app-repos-list-item>
+  </div>
+</div>

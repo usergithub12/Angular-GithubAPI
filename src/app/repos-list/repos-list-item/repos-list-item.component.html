@@ -1,1 +1,16 @@
-<p>repos-list-item works!</p>
+<div class="card text-center">
+  <img src="{{ singleRepo.owner.avatar_url }}" class="card-img-top" alt="..." />
+  <div class="card-body">
+    <h5 class="card-title">{{ singleRepo.name }}</h5>
+    <p class="card-text">{{ singleRepo.full_name }}</p>
+    <a href="{{ singleRepo.owner.html_url }}" class="card-text">{{
+      singleRepo.owner.html_url
+    }}</a>
+    <br />
+    <a href="{{ singleRepo.html_url }}" class="card-text">{{
+      singleRepo.html_url
+    }}</a>
+    <br />
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
