@@ -1,7 +1,12 @@
-<div class="card text-center">
-  <img src="{{ singleRepo.owner.avatar_url }}" class="card-img-top" alt="..." />
+<div class="card bg-transparent border-0 text-center">
+  <!-- <img src="{{ singleRepo.owner.avatar_url }}" class="card-img-top" alt="..." /> -->
+  <img
+    src="https://octicons.github.com/img/og/repo.png"
+    class="card-img-top"
+    alt="..."
+  />
   <div class="card-body">
-    <h5 class="card-title">{{ singleRepo.name }}</h5>
+    <h3 class="card-title">{{ singleRepo.name }}</h3>
     <p class="card-text">{{ singleRepo.full_name }}</p>
     <a href="{{ singleRepo.owner.html_url }}" class="card-text">{{
       singleRepo.owner.html_url
@@ -11,6 +16,6 @@
       singleRepo.html_url
     }}</a>
     <br />
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a href="#" class="btn w-100 btn-dark">Details</a>
   </div>
 </div>

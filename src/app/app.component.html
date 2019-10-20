@@ -1,10 +1,18 @@
 <app-header (choiceSelected)="onChoiceSwitch($event)"></app-header>
-<label>Username:</label>
-<input [(ngModel)]="username" />
-<!-- btn (click) -->
-<button (click)="getUserFollowers(); getUserRepo()" class="btn btn-dark">
-  GET DATA
-</button>
+<div class="container">
+  <div class="row">
+    <div class="form-group  mx-auto">
+      <label class="badge badge-pill badge-dark">Username:</label>
+      <input placeholder="User" class="form-control" [(ngModel)]="username" />
+      <button
+        (click)="getUserFollowers(); getUserRepo()"
+        class="btn w-100 btn-dark"
+      >
+        GET DATA
+      </button>
+    </div>
+  </div>
+</div>
 <app-repos-list
   *ngIf="loadedChoice === 'Repositories'"
   [repos]="repos"
