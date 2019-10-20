@@ -1,5 +1,4 @@
-import { Component, OnInit } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { Component, OnInit, Input } from "@angular/core";
 import { GitApiService } from "../git-api.service";
 @Component({
   selector: "app-repos-list",
@@ -8,23 +7,9 @@ import { GitApiService } from "../git-api.service";
 })
 export class ReposListComponent implements OnInit {
   data: string[];
-  username = "usergithub12";
-
+  @Input() username: string;
   title = "apigithub";
-  constructor(private GitApiService: GitApiService) {
-    //WORKING PUBLIC REPOSITORIES
-    // this.httpClient
-    //   .get("https://api.github.com/repositories?since=364")
-    //   .subscribe((data: any[]) => {
-    //     console.log(data);
-    //     this.data = data;
-    //   });
-    //WORKING USER REPOSITORIES
-    this.GitApiService.GetUserRepo(this.username).subscribe((data: any[]) => {
-      console.log(data);
-      this.data = data;
-    });
-  }
+  constructor(private GitApiService: GitApiService) {}
 
   getUserRepo() {
     this.GitApiService.GetUserRepo(this.username).subscribe((data: any[]) => {
@@ -33,5 +18,12 @@ export class ReposListComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log("Got uername!", this.username);
+    //WORKING USER REPOSITORIES
+    this.GitApiService.GetUserRepo(this.username).subscribe((data: any[]) => {
+      console.log(data);
+      this.data = data;
+    });
+  }
 }

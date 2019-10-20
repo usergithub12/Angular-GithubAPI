@@ -1,2 +1,9 @@
 <app-header></app-header>
-<app-repos-list></app-repos-list>
+<label>Username:</label>
+<input [(ngModel)]="username" />
+<!-- btn (click) -->
+<button class="btn btn-dark">
+  GET DATA
+</button>
+<app-repos-list [username]="username"></app-repos-list>
+<app-followers-list [user]="username"></app-followers-list>

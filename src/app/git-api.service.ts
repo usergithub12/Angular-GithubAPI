@@ -13,4 +13,16 @@ export class GitApiService {
       "https://api.github.com/users/" + username + "/repos"
     );
   }
+
+  public GetUserFollowers(username) {
+    console.log("serviceUsername from followers", username);
+    return this.httpClient.get(
+      "https://api.github.com/users/" + username + "/followers"
+    );
+  }
+
+  public GetPublicRepo() {
+    //WORKING PUBLIC REPOSITORIES
+    return this.httpClient.get("https://api.github.com/repositories?since=364");
+  }
 }

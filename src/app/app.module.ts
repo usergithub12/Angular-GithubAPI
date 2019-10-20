@@ -7,12 +7,16 @@ import { HeaderComponent } from "./header/header.component";
 import { ReposListComponent } from "./repos-list/repos-list.component";
 import { ReposListItemComponent } from "./repos-list/repos-list-item/repos-list-item.component";
 import { FormsModule } from "@angular/forms";
+import { FollowersListComponent } from './followers-list/followers-list.component';
+import { FollowersListItemComponent } from './followers-list/followers-list-item/followers-list-item.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ReposListComponent,
-    ReposListItemComponent
+    ReposListItemComponent,
+    FollowersListComponent,
+    FollowersListItemComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
