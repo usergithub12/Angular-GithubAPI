@@ -8,6 +8,7 @@ import { GitApiService } from "../git-api.service";
 export class ReposListComponent implements OnInit {
   data: string[];
   @Input() username: string;
+  @Input() repos: string[];
   title = "apigithub";
   constructor(private GitApiService: GitApiService) {}
 

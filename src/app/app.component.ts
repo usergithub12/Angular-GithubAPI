@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { GitApiService } from "./git-api.service";
 
 @Component({
   selector: "app-root",
@@ -7,8 +8,27 @@ import { Component } from "@angular/core";
 })
 export class AppComponent {
   username = "usergithub12";
+  followers: string[];
+  repos: string[];
 
-  onChoiceSwitch($event) {
-    $event();
+  loadedChoice = "Repositories";
+
+  onChoiceSwitch(choice: string) {
+    this.loadedChoice = choice;
+  }
+  constructor(private GitApiService: GitApiService) {}
+  getUserFollowers() {
+    this.GitApiService.GetUserFollowers(this.username).subscribe(
+      (data: any[]) => {
+        console.log(data);
+        this.followers = data;
+      }
+    );
+  }
+  getUserRepo() {
+    this.GitApiService.GetUserRepo(this.username).subscribe((data: any[]) => {
+      console.log(data);
+      this.repos = data;
+    });
   }
 }

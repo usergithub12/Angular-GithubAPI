@@ -9,6 +9,7 @@ export class FollowersListComponent implements OnInit {
   data: string[];
   username: string;
   @Input() user: string;
+  @Input() followers: string;
   constructor(private GitApiService: GitApiService) {}
   getUserFollowers() {
     this.GitApiService.GetUserFollowers(this.user).subscribe((data: any[]) => {
