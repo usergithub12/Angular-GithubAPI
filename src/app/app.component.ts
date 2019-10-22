@@ -10,6 +10,7 @@ export class AppComponent {
   username = "usergithub12";
   followers: string[];
   repos: string[];
+  user: string[];
 
   loadedChoice = "Repositories";
 
@@ -29,6 +30,13 @@ export class AppComponent {
     this.GitApiService.GetUserRepo(this.username).subscribe((data: any[]) => {
       console.log(data);
       this.repos = data;
+    });
+  }
+
+  getUserInfo() {
+    this.GitApiService.GetUserInfo(this.username).subscribe((data: any[]) => {
+      console.log(data);
+      this.user = data;
     });
   }
 }

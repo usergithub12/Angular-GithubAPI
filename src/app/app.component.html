@@ -1,11 +1,12 @@
 <app-header (choiceSelected)="onChoiceSwitch($event)"></app-header>
 <div class="container">
   <div class="row">
+    <app-user-profile [user]="user" [username]="username"></app-user-profile>
     <div class="form-group  mx-auto">
       <label class="badge badge-pill badge-dark">Username:</label>
       <input placeholder="User" class="form-control" [(ngModel)]="username" />
       <button
-        (click)="getUserFollowers(); getUserRepo()"
+        (click)="getUserFollowers(); getUserRepo(); getUserInfo()"
         class="btn w-100 btn-dark"
       >
         GET DATA

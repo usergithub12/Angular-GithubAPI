@@ -25,4 +25,8 @@ export class GitApiService {
     //WORKING PUBLIC REPOSITORIES
     return this.httpClient.get("https://api.github.com/repositories?since=364");
   }
+
+  public GetUserInfo(username) {
+    return this.httpClient.get("https://api.github.com/users/" + username);
+  }
 }
