@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <app-repos-list-item
+      (selectedRepo)="onRepoSelected($event)"
       class="col-md-3"
       *ngFor="let dataitem of repos"
       [singleRepo]="dataitem"

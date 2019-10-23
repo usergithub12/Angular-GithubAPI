@@ -10,6 +10,8 @@ import { FormsModule } from "@angular/forms";
 import { FollowersListComponent } from './followers-list/followers-list.component';
 import { FollowersListItemComponent } from './followers-list/followers-list-item/followers-list-item.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { CommitsListComponent } from './commits-list/commits-list.component';
+import { CommitListItemComponent } from './commits-list/commit-list-item/commit-list-item.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,9 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     ReposListItemComponent,
     FollowersListComponent,
     FollowersListItemComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    CommitsListComponent,
+    CommitListItemComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

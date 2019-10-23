@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { GitApiService } from "../git-api.service";
 @Component({
   selector: "app-repos-list",
@@ -6,6 +6,8 @@ import { GitApiService } from "../git-api.service";
   styleUrls: ["./repos-list.component.scss"]
 })
 export class ReposListComponent implements OnInit {
+  @Output() getSelectedRepo = new EventEmitter<string[]>();
+
   data: string[];
   @Input() username: string;
   @Input() repos: string[];
@@ -26,5 +28,11 @@ export class ReposListComponent implements OnInit {
       console.log(data);
       this.data = data;
     });
+  }
+
+  onRepoSelected(singleRepo) {
+    this.GitApiService.activeRepos = singleRepo.name;
+    console.log("REPO from repo-list", singleRepo);
+    this.getSelectedRepo.emit(singleRepo);
   }
 }

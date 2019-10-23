@@ -6,6 +6,8 @@ import { HttpClient } from "@angular/common/http";
 export class GitApiService {
   private REST_API_SERVER = "https://api.github.com/";
 
+  activeRepos: string;
+
   constructor(private httpClient: HttpClient) {}
 
   public GetUserRepo(username) {
@@ -28,5 +30,11 @@ export class GitApiService {
 
   public GetUserInfo(username) {
     return this.httpClient.get("https://api.github.com/users/" + username);
+  }
+
+  public GetReposCommits(username, repository) {
+    return this.httpClient.get(
+      "https://api.github.com/repos/" + username + "/" + repository + "/commits"
+    );
   }
 }

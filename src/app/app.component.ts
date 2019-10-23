@@ -11,13 +11,18 @@ export class AppComponent {
   followers: string[];
   repos: string[];
   user: string[];
-
+  commits: string[];
+  reponame: string;
   loadedChoice = "Repositories";
 
   onChoiceSwitch(choice: string) {
     this.loadedChoice = choice;
   }
-  constructor(private GitApiService: GitApiService) {}
+
+  constructor(private GitApiService: GitApiService) {
+    this.getReposCommits();
+  }
+
   getUserFollowers() {
     this.GitApiService.GetUserFollowers(this.username).subscribe(
       (data: any[]) => {
@@ -37,6 +42,19 @@ export class AppComponent {
     this.GitApiService.GetUserInfo(this.username).subscribe((data: any[]) => {
       console.log(data);
       this.user = data;
+    });
+  }
+  getReposCommits() {
+    console.log(
+      "call Repos commits reposname from GITSERVICE=>",
+      this.GitApiService.activeRepos
+    );
+    this.GitApiService.GetReposCommits(
+      this.username,
+      this.GitApiService.activeRepos
+    ).subscribe((data: any[]) => {
+      console.log(data);
+      this.commits = data;
     });
   }
 }

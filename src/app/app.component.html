@@ -1,7 +1,11 @@
 <app-header (choiceSelected)="onChoiceSwitch($event)"></app-header>
 <div class="container">
   <div class="row">
-    <app-user-profile [user]="user" [username]="username"></app-user-profile>
+    <app-user-profile
+      [hidden]="!user"
+      [user]="user"
+      [username]="username"
+    ></app-user-profile>
     <div class="form-group  mx-auto">
       <label class="badge badge-pill badge-dark">Username:</label>
       <input placeholder="User" class="form-control" [(ngModel)]="username" />
@@ -13,14 +17,28 @@
       </button>
     </div>
   </div>
+  <div class="row">
+    <app-repos-list
+      (getSelectedRepo)="reponame = $event.name"
+      *ngIf="loadedChoice === 'Repositories'"
+      [repos]="repos"
+      [username]="username"
+    ></app-repos-list>
+    <app-followers-list
+      *ngIf="loadedChoice !== 'Repositories'"
+      [followers]="followers"
+      [user]="username"
+    ></app-followers-list>
+
+    <app-commits-list
+      *ngIf="reponame; else eventInfo"
+      [reponame]="reponame"
+      [userreponame]="username"
+      [commits]="commits"
+    >
+    </app-commits-list>
+    <ng-template #eventInfo>
+      <h3>Select repo!</h3>
+    </ng-template>
+  </div>
 </div>
-<app-repos-list
-  *ngIf="loadedChoice === 'Repositories'"
-  [repos]="repos"
-  [username]="username"
-></app-repos-list>
-<app-followers-list
-  *ngIf="loadedChoice !== 'Repositories'"
-  [followers]="followers"
-  [user]="username"
-></app-followers-list>

@@ -1,0 +1,11 @@
+<div class="container">
+  <h3>Commits</h3>
+  <hr />
+  <div class="row">
+    <app-commit-list-item
+      class="col-md-4"
+      *ngFor="let dataitem of commits"
+      [singleCommit]="dataitem"
+    ></app-commit-list-item>
+  </div>
+</div>

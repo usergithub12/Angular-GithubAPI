@@ -1,0 +1,17 @@
+<div class="card  border-0 text-center" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="card-body">
+      <label class="badge badge-dark">Name: </label>
+      <h5 class="card-title">{{ singleCommit.commit.author.name }}</h5>
+      <hr />
+      <label class="badge badge-dark">Email: </label>
+      <p class="card-text">{{ singleCommit.commit.author.email }}</p>
+      <hr />
+      <label class="badge badge-dark">Date: </label>
+      <p class="card-text">{{ singleCommit.commit.author.date }}</p>
+      <hr />
+      <label class="badge badge-dark">Message: </label>
+      <p class="card-text">{{ singleCommit.commit.message }}</p>
+    </div>
+  </div>
+</div>
